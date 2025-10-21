@@ -1,0 +1,195 @@
+/* Admin overrides: colours tuned to the provided screenshot */
+:root{
+  --admin-primary: #1FAAAE; /* bright teal from image */
+  --admin-primary-dark: #0f6b6a; /* darker teal for sidebar */
+  --admin-accent: #28c2c0; /* accent for buttons/badges */
+  --admin-text-on-primary: #ffffff;
+}
+
+/* Topbar / header and brand */
+.navbar, .topbar, .header, .admin-header, .navbar-top, header.navbar {
+  background-color: var(--admin-primary) !important;
+  color: var(--admin-text-on-primary) !important;
+}
+.navbar .navbar-brand img, .navbar-brand-wrapper img {
+  /* keep logo visible */
+  filter: brightness(1) contrast(1) !important;
+}
+
+/* Sidebar / vertical nav */
+aside, .sidebar, .navbar-vertical, .navbar-vertical-aside, .navbar-vertical-aside-show-xl aside {
+  background-color: var(--admin-primary-dark) !important;
+  color: var(--admin-text-on-primary) !important;
+}
+
+/* Remove any background images/gradients from sidebar imposed by theme */
+.navbar-vertical-aside, .sidebar, aside, .navbar-vertical {
+  background-image: none !important;
+}
+
+/* More aggressive selector targeting commonly used admin sidebar wrappers */
+.navbar-vertical.aside, .navbar-vertical-aside .navbar, .sidebar--main, .sidebar--main .nav,
+.navbar-vertical .navbar-nav, .navbar-vertical-aside .navbar-nav {
+  background-color: var(--admin-primary-dark) !important;
+}
+
+/* Brand inside sidebar */
+.sidebar .sidebar-brand, .navbar-vertical .navbar-brand, .navbar-vertical .navbar-brand-wrapper {
+  background-color: transparent !important;
+  color: var(--admin-text-on-primary) !important;
+}
+
+/* Sidebar search box background */
+.sidebar--search-form .form--control, .sidebar--search-form .search--form-group {
+  background-color: rgba(255,255,255,0.03) !important;
+  color: rgba(255,255,255,0.9) !important;
+}
+
+/* Sidebar nav links - ensure readable and active state */
+.navbar-vertical .nav-link, .sidebar .nav-link, .navbar-vertical-aside .nav-link,
+.navbar-vertical .navbar-nav .nav-link, .sidebar--main .nav-link {
+  color: rgba(255,255,255,0.95) !important;
+}
+.navbar-vertical .nav-item .nav-link:hover,
+.sidebar .nav-item .nav-link:hover,
+.navbar-vertical .nav-item.active > .nav-link,
+.sidebar .nav-item.active > .nav-link {
+  background-color: rgba(255,255,255,0.06) !important;
+  color: var(--admin-text-on-primary) !important;
+}
+
+/* Primary buttons and action buttons */
+.btn--primary, .btn-primary, .btn--primary.h--45px, .btn--primary.min-w-120, .btn--primary.min-w-120.confirm-model {
+  background-color: var(--admin-accent) !important;
+  border-color: var(--admin-accent) !important;
+  color: var(--admin-text-on-primary) !important;
+}
+.btn--primary:hover, .btn-primary:hover {
+  background-color: var(--admin-primary) !important;
+  border-color: var(--admin-primary) !important;
+}
+
+/* Toggle switches and badges */
+.toggle-switch-input:checked + .toggle-switch-label, .badge--primary, .badge-primary, .nav-indicator-icon {
+  background-color: var(--admin-accent) !important;
+  color: var(--admin-text-on-primary) !important;
+}
+
+/* Links and small highlights */
+a.text-006AE5, .text-primary, .text--primary, a.text--primary {
+  color: var(--admin-primary) !important;
+}
+
+/* Inputs focus and form highlights */
+.form-control:focus, input:focus, textarea:focus {
+  border-color: var(--admin-accent) !important;
+  box-shadow: 0 0 0 0.2rem rgba(40, 194, 192, 0.12) !important;
+}
+
+/* Ensure text in primary areas is white for contrast */
+.header, .topbar, .navbar-vertical, .sidebar, .footer, .sticky-footer, aside {
+  color: var(--admin-text-on-primary) !important;
+}
+
+/* Fallback for very specific theme rules: target ID/class combos often used */
+#kt_aside_menu, #kt_aside, #kt_header, .kt-header, .aside .aside-body {
+  background-color: var(--admin-primary-dark) !important;
+  color: var(--admin-text-on-primary) !important;
+  background-image: none !important;
+}
+
+/* Keep other colours unchanged - we only specialise chrome elements above */
+
+/* End of admin-overrides.css */
+
+/* ------------------------------------------------------------------ */
+/* Additional aggressive overrides for cards, content panels, tables */
+/* ------------------------------------------------------------------ */
+
+/* Content area panels and cards: give a subtle teal tint and teal border */
+.content, .content-wrapper, .card, .card-body, .card-header, .page-header, .page-title {
+  background-color: rgba(31,170,174,0.03) !important; /* very light teal */
+  border-color: rgba(31,170,174,0.08) !important;
+  color: rgba(3,50,50,0.95) !important;
+}
+
+.card-header, .card .card-header, .page-header .card-header {
+  background-color: rgba(31,170,174,0.06) !important;
+  color: var(--admin-primary-dark) !important;
+}
+
+/* Table header tint */
+.table thead th, .table thead tr th {
+  background-color: rgba(31,170,174,0.04) !important;
+  color: var(--admin-primary-dark) !important;
+  border-bottom-color: rgba(31,170,174,0.08) !important;
+}
+
+/* Search box and inputs inside sidebar */
+.sidebar--search-form .form--control, .search--form-group .form-control, .search--form-group .form--control {
+  background-color: rgba(255,255,255,0.02) !important;
+  border: 1px solid rgba(255,255,255,0.08) !important;
+  color: rgba(255,255,255,0.95) !important;
+}
+
+/* Dropdown menus, topbar buttons, and module selector */
+.dropdown-menu, .dropdown-menu .dropdown-item, .hs-unfold .dropdown-menu, .dropdown-menu.show {
+  background-color: #ffffff !important;
+  color: #222 !important;
+  border: 1px solid rgba(31,170,174,0.08) !important;
+}
+
+/* Make top-right module button use accent instead of default blue */
+.btn.btn-outline-primary, .btn.btn-primary.btn-outline-primary, .btn.module-btn, .hs-unfold .btn {
+  background-color: var(--admin-accent) !important;
+  border-color: var(--admin-accent) !important;
+  color: var(--admin-text-on-primary) !important;
+}
+
+/* Outline / secondary buttons that target blue; recolor their border/text */
+.btn-outline-primary, .btn-outline-primary:hover, .btn-outline-primary:focus {
+  border-color: var(--admin-accent) !important;
+  color: var(--admin-accent) !important;
+}
+
+/* Small floating action / helper buttons */
+.btn--cancel, .btn--cancel:hover {
+  background-color: rgba(0,0,0,0.04) !important;
+  color: rgba(0,0,0,0.6) !important;
+}
+
+/* Toggle switch colours (checked) */
+.toggle-switch-input:checked + .toggle-switch-label::before, .toggle-switch-input:checked + .toggle-switch-label {
+  background-color: var(--admin-accent) !important;
+  border-color: var(--admin-accent) !important;
+}
+
+/* badges & labels that were blue */
+.badge, .badge--info, .label--info {
+  background-color: var(--admin-accent) !important;
+  color: var(--admin-text-on-primary) !important;
+}
+
+/* Breadcrumbs and small text headers */
+.breadcrumb, .page-title .subtitle, .page-title .small, .page-header .small {
+  color: rgba(3,50,50,0.6) !important;
+}
+
+/* Footer tag badges */
+.sticky-footer .badge, footer .badge {
+  background-color: var(--admin-accent) !important;
+  color: var(--admin-text-on-primary) !important;
+}
+
+/* Ensure icons inside sidebar remain visible */
+.navbar-vertical .nav-link i, .sidebar .nav-link i {
+  color: rgba(255,255,255,0.95) !important;
+}
+
+/* Very specific fallback for theme-specific wrappers */
+#kt_aside #kt_content .card, #kt_aside .card, .kt_aside .card {
+  background-color: rgba(31,170,174,0.03) !important;
+  border-color: rgba(31,170,174,0.08) !important;
+}
+
+/* end additional overrides */
