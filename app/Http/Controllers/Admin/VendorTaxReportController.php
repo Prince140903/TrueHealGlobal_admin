@@ -223,8 +223,12 @@ class VendorTaxReportController extends Controller
         $startDate = $startDate->startOfDay();
         $endDate = $endDate->endOfDay();
 
-        $store_id = $request->id;
-        $store = is_numeric($store_id) ? Store::select('id', 'name', 'phone')->findOrFail($store_id) : null;
+        // Accept id from multiple query keys and guard against missing/invalid values
+        $store_id = $request->id ?? $request->query('store_id');
+        if (!is_numeric($store_id)) {
+            return back()->with('error', 'Please select a valid store to view tax details.');
+        }
+        $store = Store::select('id', 'name', 'phone')->findOrFail($store_id);
 
         // $start = microtime(true);
         $vendortaxData =   $this->getVendortaxData($store->id, $startDate, $endDate);
@@ -254,8 +258,12 @@ class VendorTaxReportController extends Controller
         $startDate = $startDate->startOfDay();
         $endDate = $endDate->endOfDay();
 
-        $store_id = $request->id;
-        $store = is_numeric($store_id) ? Store::select('id', 'name', 'phone')->findOrFail($store_id) : null;
+        // Accept id from multiple query keys and guard against missing/invalid values
+        $store_id = $request->id ?? $request->query('store_id');
+        if (!is_numeric($store_id)) {
+            return back()->with('error', 'Please select a valid store to export tax details.');
+        }
+        $store = Store::select('id', 'name', 'phone')->findOrFail($store_id);
 
         // $start = microtime(true);
         $vendortaxData =   $this->getVendortaxData($store->id, $startDate, $endDate);
